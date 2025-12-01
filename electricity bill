@@ -1,0 +1,13 @@
+prev_usage=int(input("Enter the previous usage"))
+curr_usage=int(input("Enter the current usage"))
+units=curr_usage-prev_usage
+total=0
+if 0<units<=100:
+    total=units*3
+elif 101<units<=150:
+    total=((units-100)*5)+300
+elif 151<units<=200:
+    total = ((units-150)*7)+550
+else:
+    total = ((units-200)*9)+900
+print("Total bill = ", total)
