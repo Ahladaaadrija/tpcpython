@@ -1,0 +1,18 @@
+def averagefn(num,k):
+    n=len(num)
+    curr_sum=0
+    for i in range(k):
+        curr_sum+=num[i];
+    avgmax=curr_sum/k
+    for i in range(k,n):
+        curr_sum+=num[i]
+        curr_sum-=num[i-k]
+
+        avg=curr_sum/k
+        avgmax=max(avgmax,avg)
+    return avgmax
+
+n = int(input("Enter the number of elements"))
+nums=list(map(int,input("Enter array elements").split()))[:n]
+k=int(input("Enter the size of window"))
+print(averagefn(nums,k))
