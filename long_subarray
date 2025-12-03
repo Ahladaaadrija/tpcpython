@@ -1,0 +1,18 @@
+def long(m):
+    l = 0
+    longest = 0
+    sett = set()
+    n = len(m)
+    for r in range(n):
+        while m[r] in sett:
+            sett.remove(m[l])
+            l += 1
+        w = (r-l)+1
+        longest = max(longest,w)
+        sett.add(m[r])
+
+    return longest
+
+n = int(input("Enter the number of elements"))
+s=list(map(str,input("Enter the array").split()))[:n]
+print(long(s))
