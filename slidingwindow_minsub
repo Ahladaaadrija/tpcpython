@@ -1,0 +1,24 @@
+def minsub(num,target):
+    start = 0
+    window_sum = 0
+    min_length = float("inf")
+    for end in range(len(num)):
+        window_sum += num[end]
+
+        while window_sum>=target:
+            min_length = min(min_length ,end-start +1)
+            window_sum -= num[start]
+            start+=1
+    if min_length == float('inf'):
+        return 0
+    else:
+        return min_length
+
+target = int(input("Enter the target"))
+n = int(input("Enter the number of elements"))
+while True:
+    num = list(map(int, input("Enter the array:").split()))
+    if len(num)==n:
+        break
+    print("Enter exactly ",n," elements")
+print(minsub(num,target))
